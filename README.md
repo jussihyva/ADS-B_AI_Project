@@ -7,7 +7,10 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
 ### 1.1 Create SD card for Raspberry PI
 
 * Use Raspberry Imager to create a SD card
-  Select "Raspberry PI OS Lite" operating system
+  Select "**Raspberry PI OS Lite (32-bit)**" operating system.
+
+![Raspberry_PI_Imager](doc/Raspberry_PI_Imager.png)
+
 * Follow instruction [How to Enable SSH on Raspberry Pi](https://linuxize.com/post/how-to-enable-ssh-on-raspberry-pi) --> Chapter Enabling SSH on Raspberry Pi Without a Screen
 
 ### 1.2 Start Raspberry PI and login
