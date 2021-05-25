@@ -1,0 +1,42 @@
+version: '3.0'
+services:
+  readsb:
+    image: mikenye/readsb-protobuf
+    env_file:
+      - .env
+    tty: true
+    container_name: readsb
+    hostname: ${SITE_NAME}
+    restart: always
+    devices:
+      - ${DEVICE}:${DEVICE}
+    ports:
+      - 8080:8080
+      - 30005:30005
+    networks:
+      - adsbnet
+    environment:
+      - TZ=${TZ}
+      - READSB_DCFILTER=true
+      - READSB_DEVICE_TYPE=rtlsdr
+      - READSB_FIX=true
+      - READSB_GAIN=autogain
+      - READSB_LAT=${READSB_LAT}
+      - READSB_LON=${READSB_LON}
+      - READSB_MODEAC=true
+      - READSB_RX_LOCATION_ACCURACY=2
+      - READSB_STATS_RANGE=true
+      - READSB_NET_ENABLE=true
+      - INFLUXDBURL=${INFLUXDBURL}
+      - INFLUXDBUSERNAME=${INFLUXDBUSERNAME}
+      - INFLUXDBPASSWORD=${INFLUXDBPASSWORD}
+      - AUTOGAIN_INITIAL_MSGS_ACCEPTED=1000
+    volumes:
+      - readsbpb_rrd:/run/collectd
+      - readsbpb_autogain:/run/autogain
+      - ./04-telegraf:/etc/cont-init.d/04-telegraf
+networks:
+  adsbnet:
+volumes:
+  readsbpb_rrd:
+  readsbpb_autogain:
