@@ -37,6 +37,10 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
 * cd ADS-B_AI_Project
 * touch .env
 * Add these param values into the file (Ask values from the administrator)
+* INFLUXDBURL2 is optional. It's use for sending data to the second InfluxDB.
+
+#### 1.6.1 Example with connetcion to 1 influxdb
+
     DEVICE="/dev/bus/usb/001/004"
     SITE_NAME="Koivuhovi"
     TZ="Europe/Helsinki"
@@ -45,6 +49,23 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
     INFLUXDBURL="https://10.10.10.10:8086"
     INFLUXDBUSERNAME="kauttajanimi"
     INFLUXDBPASSWORD="salasana"
+    INFLUXDBURL2=
+    INFLUXDBUSERNAME2=
+    INFLUXDBPASSWORD2=
+
+#### 1.6.2 Example with connetcion to 2 influxdb's
+
+    DEVICE="/dev/bus/usb/001/004"
+    SITE_NAME="Koivuhovi"
+    TZ="Europe/Helsinki"
+    READSB_LAT="60.555555"
+    READSB_LON="24.555555"
+    INFLUXDBURL="https://10.10.10.10:8086"
+    INFLUXDBUSERNAME="kauttajanimi"
+    INFLUXDBPASSWORD="salasana"
+    INFLUXDBURL2="https://another_influxdb_IP:8086"
+    INFLUXDBUSERNAME2="kauttajanimi_another_one"
+    INFLUXDBPASSWORD2="salasana_not_easy_one"
 
 ### 1.7 Start ADS-B
 

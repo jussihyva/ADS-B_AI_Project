@@ -40,6 +40,30 @@ if [[ -n "$INFLUXDBURL" ]]; then
       echo "password = \"${INFLUXDBPASSWORD}\""
     fi
 
+    if [[ -n "${INFLUXDBPASSWORD2+x}" ]]
+    then
+      echo "[[outputs.influxdb]]"
+
+      # Add InfluxDB URL
+      echo " urls = [\"${INFLUXDBURL2}\"]"
+
+      # Finish config
+      echo 'database = "readsb"'
+      echo 'skip_database_creation = false'
+      echo 'timeout = "5s"'
+      echo 'insecure_skip_verify = true'
+
+      # If set, add InfluxDB username
+      if [[ -n "${INFLUXDBUSERNAME2+x}" ]]; then
+        echo "username = \"${INFLUXDBUSERNAME2}\""
+      fi
+
+      # If set, add InfluxDB password
+      if [[ -n "${INFLUXDBPASSWORD2+x}" ]]; then
+        echo "password = \"${INFLUXDBPASSWORD2}\""
+      fi
+    fi
+
   } > "$OUTPUT_INFLUXDB_CONFIG_FILE"
 
 
