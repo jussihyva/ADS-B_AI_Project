@@ -16,23 +16,14 @@ services:
     networks:
       - adsbnet
     environment:
-      - TZ=${TZ}
       - READSB_DCFILTER=true
       - READSB_DEVICE_TYPE=rtlsdr
       - READSB_FIX=true
       - READSB_GAIN=autogain
-      - READSB_LAT=${READSB_LAT}
-      - READSB_LON=${READSB_LON}
       - READSB_MODEAC=true
       - READSB_RX_LOCATION_ACCURACY=2
       - READSB_STATS_RANGE=true
       - READSB_NET_ENABLE=true
-      - INFLUXDBURL=${INFLUXDBURL}
-      - INFLUXDBUSERNAME=${INFLUXDBUSERNAME}
-      - INFLUXDBPASSWORD=${INFLUXDBPASSWORD}
-      - INFLUXDBURL2=${INFLUXDBURL2}
-      - INFLUXDBUSERNAME2=${INFLUXDBUSERNAME2}
-      - INFLUXDBPASSWORD2=${INFLUXDBPASSWORD2}
       - AUTOGAIN_INITIAL_MSGS_ACCEPTED=1000
     volumes:
       - readsbpb_rrd:/run/collectd

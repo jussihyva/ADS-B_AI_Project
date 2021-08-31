@@ -31,37 +31,22 @@ if [[ -n "$INFLUXDBURL" ]]; then
     echo 'insecure_skip_verify = true'
 
     # If set, add InfluxDB username
-    if [[ -n "${INFLUXDBUSERNAME+x}" ]]; then
+    if [[ -n "${INFLUXDBUSERNAME}" ]]; then
       echo "username = \"${INFLUXDBUSERNAME}\""
     fi
 
     # If set, add InfluxDB password
-    if [[ -n "${INFLUXDBPASSWORD+x}" ]]; then
+    if [[ -n "${INFLUXDBPASSWORD}" ]]; then
       echo "password = \"${INFLUXDBPASSWORD}\""
     fi
 
-    if [[ -n "${INFLUXDBPASSWORD2+x}" ]]
+    if [[ -n "${INFLUXDBURL_V2}" ]]
     then
-      echo "[[outputs.influxdb]]"
-
-      # Add InfluxDB URL
-      echo " urls = [\"${INFLUXDBURL2}\"]"
-
-      # Finish config
-      echo 'database = "readsb"'
-      echo 'skip_database_creation = false'
-      echo 'timeout = "5s"'
-      echo 'insecure_skip_verify = true'
-
-      # If set, add InfluxDB username
-      if [[ -n "${INFLUXDBUSERNAME2+x}" ]]; then
-        echo "username = \"${INFLUXDBUSERNAME2}\""
-      fi
-
-      # If set, add InfluxDB password
-      if [[ -n "${INFLUXDBPASSWORD2+x}" ]]; then
-        echo "password = \"${INFLUXDBPASSWORD2}\""
-      fi
+      echo "[[outputs.influxdb_v2]]"
+      echo " urls = [\"${INFLUXDB_V2_URL}\"]"
+      echo " token = \"${INFLUXDB_V2_TOKEN}\""
+      echo " organization = \"${INFLUXDB_V2_ORG}\""
+      echo " bucket = \"${INFLUXDB_V2_BUCKET}\""
     fi
 
   } > "$OUTPUT_INFLUXDB_CONFIG_FILE"
