@@ -40,7 +40,7 @@ if [[ -n "$INFLUXDBURL" ]]; then
       echo "password = \"${INFLUXDBPASSWORD}\""
     fi
 
-    if [[ -n "${INFLUXDBURL_V2}" ]]
+    if [[ -n "${INFLUXDB_V2_URL}" ]]
     then
       echo "[[outputs.influxdb_v2]]"
       echo " urls = [\"${INFLUXDB_V2_URL}\"]"
