@@ -6,7 +6,7 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
 
 ### 1.1 Create SD card for Raspberry PI
 
-* Use Raspberry Imager to create a SD card
+* Use **Raspberry Pi Imager** to create a SD card
   Select "**Raspberry PI OS Lite (32-bit)**" operating system.
 
 ![Raspberry_PI_Imager](doc/Raspberry_PI_Imager.png)
@@ -36,7 +36,7 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
 
 * cd ADS-B_AI_Project
 * touch .env
-* Add these param values into the file (Ask values from the administrator)
+* Update content of the **.env** file. Refer to examples below (Ask values from the administrator)
 * INFLUXDBURL2 is optional. It's use for sending data to the second InfluxDB.
 
 #### 1.6.1 Example with connetcion to 1 influxdb
