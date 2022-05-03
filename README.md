@@ -15,29 +15,29 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
 
 ### 1.2 Start Raspberry PI and login
 
-* Put SD into Raspberry PI
-* Login to the Raspberry PI
+- Put SD into Raspberry PI
+- Login to the Raspberry PI
   ssh pi@ip_address
   raspberry   <-- This is default PW
 
 ### 1.3 Install Git
 
-* Follow instruction [How to Install Git on Raspberry Pi](https://linuxize.com/post/how-to-install-git-on-raspberry-pi/)
+- Follow instruction [How to Install Git on Raspberry Pi](https://linuxize.com/post/how-to-install-git-on-raspberry-pi/)
 
 ### 1.4 Install Docker
 
-* Follow instruction [How To Install Docker and Docker-Compose On Raspberry Pi](https://dev.to/elalemanyo/how-to-install-docker-and-docker-compose-on-raspberry-pi-1mo)
+- Follow instruction [How To Install Docker and Docker-Compose On Raspberry Pi](https://dev.to/elalemanyo/how-to-install-docker-and-docker-compose-on-raspberry-pi-1mo)
 
 ### 1.5 Install APP for RTL-SDR USB device
 
-* git clone https://github.com/jussihyva/ADS-B_AI_Project.git
+- git clone https://github.com/jussihyva/ADS-B_AI_Project.git
 
 ### 1.6 Set environment variables
 
-* cd ADS-B_AI_Project
-* touch .env
-* Update content of the **.env** file. Refer to examples below (Ask values from the administrator)
-* INFLUXDBURL2 is optional. It's use for sending data to the second InfluxDB.
+- cd ADS-B_AI_Project
+- touch .env
+- Update content of the **.env** file. Refer to examples below (Ask values from the administrator)
+- INFLUXDBURL2 is optional. It's use for sending data to the second InfluxDB.
 
 #### 1.6.1 Example with connetcion to 1 influxdb
 
@@ -69,8 +69,8 @@ Aim is to collect flight data (Using RTL-SDR USB device) and create information 
 
 ### 1.7 Start ADS-B
 
-* docker-compose up -d
+- docker-compose up -d
 
 ### 1.8 References
 
-* RTL-SDR start instruction is based on [mikenye/readsb-protobuf](https://github.com/mikenye/docker-readsb-protobuf). Refer to that page for more information
+- RTL-SDR start instruction is based on [mikenye/readsb-protobuf](https://github.com/mikenye/docker-readsb-protobuf). Refer to that page for more information
